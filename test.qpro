@@ -1,0 +1,10 @@
+QMAKE_CXXFLAGS += -Werror -fsanitize=address,undefined
+QMAKE_LFLAGS=-fsanitize=address,undefined
+CONFIG += debug
+HEADERS       = window.h R2Conv.h R2Graph.h PointDeq.h testr2conv.h
+SOURCES       = testr2conv.cpp \
+                window.cpp \
+                R2Conv.cpp \
+                PointDeq.cpp
+QT += widgets testlib
+
