@@ -1,17 +1,19 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <QMouseEvent>
 #include <QWidget>
-
-#include "R2Conv.h"
 
 class Window : public QWidget
 {
     Q_OBJECT
 
   private:
-    R2Convex conv;
+    int func_id;
+    const char *f_name;
+    double a;
+    double b;
+    int n;
+    double (*f)(double);
 
   public:
     Window(QWidget *parent);
@@ -19,9 +21,13 @@ class Window : public QWidget
     QSize minimumSizeHint() const;
     QSize sizeHint() const;
 
+    int parse_command_line(int argc, char *argv[]);
+
+  public slots:
+    void change_func();
+
   protected:
     void paintEvent(QPaintEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
 };
 
 #endif
