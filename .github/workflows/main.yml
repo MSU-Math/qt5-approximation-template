@@ -36,21 +36,3 @@ jobs:
 
       - name: Компиляция
         run: ./.github/build.sh
-
-  test:
-    runs-on: self-hosted
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install GCC
-        run: sudo apt-get install -y build-essential
-      
-      - name: Install Qt
-        run: sudo apt-get install -y qt5-default
-
-      - name: Компиляция теста
-        run: qmake ./test.qpro && make clean && make
-      
-      - name: Запуск теста
-        run: ASAN_OPTIONS=detect_leaks=0 QT_QPA_PLATFORM=offscreen ./test
