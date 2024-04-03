@@ -6,3 +6,4 @@ moc_*
 basic_graph
 r2conv
 test
+*.user
